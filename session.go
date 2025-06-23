@@ -161,7 +161,7 @@ func (m *milterSession) Process(msg *Message) (Response, error) {
 		data := decodeCStrings(msg.Data[1:])
 		if len(data) != 0 {
 			// store data in a map
-			for i := 0; i < len(data); i += 2 {
+			for i := 0; i < len(data) - 1; i++ {
 				m.macros[data[i]] = data[i+1]
 			}
 		}
